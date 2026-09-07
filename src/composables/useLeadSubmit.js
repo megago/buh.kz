@@ -8,9 +8,13 @@ import { LEAD_CONFIG, PHONE_E164 } from '../constants/contacts'
  *   A bot token must never live in client-side code, so this mode
  *   requires LEAD_CONFIG.proxyUrl to point at that proxy.
  *
+ * The outgoing lead message itself is always composed in Russian
+ * (the business owner reads Russian) regardless of the site language the
+ * visitor is browsing in — only the on-page error copy is localized via `t`.
+ *
  * Returns { ok: boolean, error?: string }.
  */
-export async function submitLead({ name, phone, email }) {
+export async function submitLead({ name, phone, email }, t) {
   const message =
     `Заявка на диагностику бухгалтерии\n` +
     `Имя: ${name}\n` +
@@ -25,7 +29,7 @@ export async function submitLead({ name, phone, email }) {
 
   if (LEAD_CONFIG.mode === 'telegram') {
     if (!LEAD_CONFIG.proxyUrl) {
-      return { ok: false, error: 'Приём заявок временно недоступен. Позвоните нам напрямую.' }
+      return { ok: false, error: t('contact.proxyDownError') }
     }
     try {
       const res = await fetch(LEAD_CONFIG.proxyUrl, {
@@ -36,9 +40,9 @@ export async function submitLead({ name, phone, email }) {
       if (!res.ok) throw new Error('bad response')
       return { ok: true }
     } catch {
-      return { ok: false, error: 'Не удалось отправить заявку. Попробуйте ещё раз или позвоните нам.' }
+      return { ok: false, error: t('contact.sendError') }
     }
   }
 
-  return { ok: false, error: 'Способ отправки не настроен.' }
+  return { ok: false, error: t('contact.genericError') }
 }

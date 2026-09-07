@@ -1,11 +1,8 @@
 <script setup>
+import { useI18n } from 'vue-i18n'
 import { PHONE_E164 } from '../constants/contacts'
 
-const stats = [
-  { value: '20+', label: 'лет опыта' },
-  { value: '50 млрд', label: 'оборота клиентов' },
-  { value: '40+', label: 'пройденных проверок' }
-]
+const { t, tm } = useI18n()
 </script>
 
 <template>
@@ -13,19 +10,18 @@ const stats = [
     <div class="container hero__grid">
       <div class="hero__copy">
         <h1 class="hero__title" v-reveal>
-          Ведите свой бизнес,<br />
-          <span>а мы позаботимся о бухгалтерии и налогах</span>
+          {{ t('hero.titleLine1') }}<br />
+          <span>{{ t('hero.titleLine2') }}</span>
         </h1>
         <p class="hero__lead" v-reveal="{ delay: 100 }">
-          Ведём комплексную бухгалтерию для бизнеса, избавляем от рутины и
-          оберегаем от штрафов — ответственность закреплена договором.
+          {{ t('hero.lead') }}
         </p>
         <div class="hero__actions" v-reveal="{ delay: 200 }">
-          <a href="#contact" class="btn btn-primary">Бесплатная диагностика</a>
-          <a :href="`tel:+${PHONE_E164}`" class="btn btn-outline">Позвонить</a>
+          <a href="#contact" class="btn btn-primary">{{ t('hero.ctaPrimary') }}</a>
+          <a :href="`tel:+${PHONE_E164}`" class="btn btn-outline">{{ t('hero.ctaSecondary') }}</a>
         </div>
         <dl class="hero__stats" v-reveal="{ delay: 300 }">
-          <div v-for="s in stats" :key="s.label" class="hero__stat">
+          <div v-for="s in tm('hero.stats')" :key="s.label" class="hero__stat">
             <dt>{{ s.value }}</dt>
             <dd>{{ s.label }}</dd>
           </div>

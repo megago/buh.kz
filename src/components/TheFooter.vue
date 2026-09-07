@@ -1,7 +1,10 @@
 <script setup>
+import { useI18n } from 'vue-i18n'
 import { PHONE_DISPLAY, PHONE_E164, EMAIL, ADDRESS } from '../constants/contacts'
 import SocialLinks from './SocialLinks.vue'
+import LanguageSwitcher from './LanguageSwitcher.vue'
 
+const { t } = useI18n()
 const year = new Date().getFullYear()
 </script>
 
@@ -10,14 +13,15 @@ const year = new Date().getFullYear()
     <div class="container footer__grid">
       <div class="footer__brand">
         <span class="footer__logo">LEADER<span>ABH</span></span>
-        <p class="footer__legal">© {{ year }} Все права защищены.</p>
-        <a href="/privacy.html" class="footer__link">Политика конфиденциальности</a>
+        <p class="footer__legal">© {{ year }} {{ t('footer.rights') }}</p>
+        <a href="/privacy.html" class="footer__link">{{ t('footer.privacy') }}</a>
+        <LanguageSwitcher class="footer__lang" />
       </div>
 
       <address class="footer__contacts">
-        <p><strong>Телефон:</strong> <a :href="`tel:+${PHONE_E164}`">{{ PHONE_DISPLAY }}</a></p>
-        <p><strong>Email:</strong> <a :href="`mailto:${EMAIL}`">{{ EMAIL }}</a></p>
-        <p><strong>Адрес:</strong> {{ ADDRESS }}</p>
+        <p><strong>{{ t('footer.phoneLabel') }}</strong> <a :href="`tel:+${PHONE_E164}`">{{ PHONE_DISPLAY }}</a></p>
+        <p><strong>{{ t('footer.emailLabel') }}</strong> <a :href="`mailto:${EMAIL}`">{{ EMAIL }}</a></p>
+        <p><strong>{{ t('footer.addressLabel') }}</strong> {{ ADDRESS }}</p>
         <SocialLinks :size="18" />
       </address>
     </div>
@@ -57,6 +61,10 @@ const year = new Date().getFullYear()
   margin-top: 0.5rem;
   font-size: 0.85rem;
   color: var(--blue);
+}
+
+.footer__lang {
+  margin-top: 1rem;
 }
 
 .footer__contacts {

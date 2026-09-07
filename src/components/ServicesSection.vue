@@ -1,36 +1,20 @@
 <script setup>
-const checklist = [
-  'Анализ и разработка стратегии налогового и бухгалтерского учёта, подходящей именно для вашего бизнеса',
-  'Налоговые и бухгалтерские консультации',
-  'Подготовка и сдача всей бухгалтерской и налоговой отчётности',
-  'Ведение бухгалтерского учёта (полный или частичный)',
-  'Обработка первичных документов',
-  'Расчёт налогов',
-  'Расчёт зарплаты и страховых взносов',
-  'Кадровый учёт'
-]
+import { useI18n } from 'vue-i18n'
 
-const cards = [
-  { title: 'Разовые консультации', text: 'Точечная помощь по конкретному вопросу — без долгосрочных обязательств.' },
-  { title: 'Открытие и ликвидация', text: 'Сопровождение бизнеса от регистрации ИП/ТОО до закрытия без хвостов и штрафов.' },
-  { title: 'Кадровое делопроизводство', text: 'Приказы, трудовые договоры, учёт кадров — в соответствии с трудовым законодательством РК.' }
-]
+const { t, tm } = useI18n()
 </script>
 
 <template>
   <section id="services" class="section services">
     <div class="container services__grid">
       <div class="services__intro" v-reveal>
-        <h2 class="eyebrow-heading">Комплексное сопровождение «под ключ»</h2>
-        <p class="services__note">
-          Мы гарантируем качественную и своевременную работу — не на словах,
-          а подписанием договора.
-        </p>
-        <a href="#contact" class="btn btn-primary">Диагностика бухгалтерии</a>
+        <h2 class="eyebrow-heading">{{ t('services.heading') }}</h2>
+        <p class="services__note">{{ t('services.note') }}</p>
+        <a href="#contact" class="btn btn-primary">{{ t('services.cta') }}</a>
       </div>
 
       <ul class="services__list">
-        <li v-for="(item, i) in checklist" :key="item" v-reveal="{ delay: i * 60 }">
+        <li v-for="(item, i) in tm('services.checklist')" :key="item" v-reveal="{ delay: i * 60 }">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
             <circle cx="10" cy="10" r="10" fill="var(--blue)" opacity="0.12" />
             <path d="M6 10.5 8.5 13 14 7.5" stroke="var(--blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
@@ -41,7 +25,7 @@ const cards = [
     </div>
 
     <div class="container services__cards">
-      <article v-for="(c, i) in cards" :key="c.title" class="service-card" v-reveal="{ delay: i * 90 }">
+      <article v-for="(c, i) in tm('services.cards')" :key="c.title" class="service-card" v-reveal="{ delay: i * 90 }">
         <h3>{{ c.title }}</h3>
         <p>{{ c.text }}</p>
       </article>

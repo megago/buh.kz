@@ -1,26 +1,15 @@
 <script setup>
-const benefits = [
-  {
-    title: '100% ответственность',
-    text: 'Мы несём ответственность за всю бухгалтерию и гарантируем правильность её ведения. Любая ошибка, совершённая по нашей вине, — будет возмещена в 100% объёме.'
-  },
-  {
-    title: 'Сэкономьте на зарплате',
-    text: 'Обращаясь к нам, вы экономите на зарплате бухгалтера и на социальных отчислениях для него — мы просто подписываем договор и не являемся штатными сотрудниками.'
-  },
-  {
-    title: 'Коллективный опыт',
-    text: 'Наша команда состоит из специалистов с разным опытом и бэкграундом. При сложной ситуации мы коллективно находим решение — то, чего не может сделать один бухгалтер в штате.'
-  }
-]
+import { useI18n } from 'vue-i18n'
+
+const { t, tm } = useI18n()
 </script>
 
 <template>
   <section id="guarantees" class="section">
     <div class="container benefits">
-      <h2 class="benefits__title" v-reveal>С нами вы экономите время и нервы</h2>
+      <h2 class="benefits__title" v-reveal>{{ t('benefits.heading') }}</h2>
       <div class="benefits__cards">
-        <article v-for="(b, i) in benefits" :key="b.title" class="benefit-card" v-reveal="{ delay: i * 90 }">
+        <article v-for="(b, i) in tm('benefits.items')" :key="b.title" class="benefit-card" v-reveal="{ delay: i * 90 }">
           <h3>{{ b.title }}</h3>
           <p>{{ b.text }}</p>
         </article>

@@ -1,9 +1,12 @@
 <script setup>
+import { useI18n } from 'vue-i18n'
 import SocialLinks from './SocialLinks.vue'
+
+const { t } = useI18n()
 </script>
 
 <template>
-  <div class="floating-social" role="complementary" aria-label="Связаться с нами">
+  <div class="floating-social" role="complementary" :aria-label="t('a11y.contactUs')">
     <SocialLinks :size="22" />
   </div>
 </template>

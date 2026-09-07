@@ -1,42 +1,48 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { PHONE_DISPLAY, PHONE_E164 } from '../constants/contacts'
 import SocialLinks from './SocialLinks.vue'
+import LanguageSwitcher from './LanguageSwitcher.vue'
+
+const { t } = useI18n()
 
 const isOpen = ref(false)
 const close = () => { isOpen.value = false }
 
-const links = [
-  { href: '#services', label: 'Услуги' },
-  { href: '#guarantees', label: 'Гарантии' },
-  { href: '#team', label: 'Команда' },
-  { href: '#certificates', label: 'Сертификаты' },
-  { href: '#contact', label: 'Контакты' }
-]
+const links = computed(() => [
+  { href: '#services', label: t('nav.services') },
+  { href: '#guarantees', label: t('nav.guarantees') },
+  { href: '#team', label: t('nav.team') },
+  { href: '#certificates', label: t('nav.certificates') },
+  { href: '#contact', label: t('nav.contact') }
+])
 </script>
 
 <template>
   <header class="header">
     <div class="container header__inner">
-      <a href="#top" class="header__logo" aria-label="LeaderABH — на главную">
+      <a href="#top" class="header__logo" :aria-label="t('a11y.homeAria')">
         LEADER<span>ABH</span>
       </a>
 
-      <nav class="header__nav" :class="{ 'is-open': isOpen }" aria-label="Основная навигация">
+      <nav class="header__nav" :class="{ 'is-open': isOpen }" :aria-label="t('a11y.mainNav')">
         <a v-for="l in links" :key="l.href" :href="l.href" @click="close">{{ l.label }}</a>
         <a class="header__phone header__phone--mobile" :href="`tel:+${PHONE_E164}`">{{ PHONE_DISPLAY }}</a>
         <SocialLinks class="header__social--mobile" :size="18" />
+        <LanguageSwitcher class="header__lang--mobile" />
       </nav>
 
       <div class="header__right">
         <a class="header__phone" :href="`tel:+${PHONE_E164}`">{{ PHONE_DISPLAY }}</a>
         <SocialLinks class="header__social" :size="18" />
+        <LanguageSwitcher class="header__lang" compact />
         <button
           class="header__burger"
           :class="{ 'is-open': isOpen }"
           :aria-expanded="isOpen"
           aria-controls="header-nav"
-          aria-label="Открыть меню"
+          :aria-label="t('a11y.openMenu')"
           @click="isOpen = !isOpen"
         >
           <span></span><span></span><span></span>
@@ -107,7 +113,8 @@ const links = [
 }
 
 .header__phone--mobile,
-.header__social--mobile {
+.header__social--mobile,
+.header__lang--mobile {
   display: none;
 }
 
@@ -157,9 +164,14 @@ const links = [
   }
 
   .header__phone--mobile,
-  .header__social--mobile {
+  .header__social--mobile,
+  .header__lang--mobile {
     display: flex;
     margin-top: 1rem;
+  }
+
+  .header__lang {
+    display: none;
   }
 
   .header__burger {

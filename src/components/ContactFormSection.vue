@@ -1,6 +1,9 @@
 <script setup>
 import { reactive, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { submitLead } from '../composables/useLeadSubmit'
+
+const { t } = useI18n()
 
 const form = reactive({ name: '', phone: '', email: '' })
 const errors = reactive({ name: '', phone: '', email: '' })
@@ -11,25 +14,25 @@ const PHONE_RE = /^\+?\d[\d\s()-]{9,}$/
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 function validate() {
-  errors.name = form.name.trim().length >= 2 ? '' : 'Укажите имя (минимум 2 символа)'
-  errors.phone = PHONE_RE.test(form.phone.trim()) ? '' : 'Укажите корректный номер телефона'
-  errors.email = EMAIL_RE.test(form.email.trim()) ? '' : 'Укажите корректный e-mail'
+  errors.name = form.name.trim().length >= 2 ? '' : t('contact.errors.name')
+  errors.phone = PHONE_RE.test(form.phone.trim()) ? '' : t('contact.errors.phone')
+  errors.email = EMAIL_RE.test(form.email.trim()) ? '' : t('contact.errors.email')
   return !errors.name && !errors.phone && !errors.email
 }
 
 async function onSubmit() {
   if (!validate()) return
   status.value = 'submitting'
-  const result = await submitLead({ ...form })
+  const result = await submitLead({ ...form }, t)
   if (result.ok) {
     status.value = 'success'
-    statusMessage.value = 'Спасибо! Мы откроем WhatsApp — отправьте сообщение, и мы свяжемся с вами.'
+    statusMessage.value = t('contact.successMessage')
     form.name = ''
     form.phone = ''
     form.email = ''
   } else {
     status.value = 'error'
-    statusMessage.value = result.error || 'Что-то пошло не так.'
+    statusMessage.value = result.error || t('contact.genericError')
   }
 }
 </script>
@@ -38,16 +41,13 @@ async function onSubmit() {
   <section id="contact" class="section">
     <div class="container contact">
       <div class="contact__copy" v-reveal>
-        <h2 class="eyebrow-heading">Бесплатная диагностика вашей бухгалтерии</h2>
-        <p>
-          Оставьте свои контакты, мы с вами свяжемся и назначим встречу, чтобы
-          обсудить вашу бухгалтерию.
-        </p>
+        <h2 class="eyebrow-heading">{{ t('contact.heading') }}</h2>
+        <p>{{ t('contact.lead') }}</p>
       </div>
 
       <form class="contact__form" novalidate @submit.prevent="onSubmit" v-reveal="{ delay: 120 }">
         <div class="field">
-          <label for="name">Имя <span aria-hidden="true">*</span></label>
+          <label for="name">{{ t('contact.nameLabel') }} <span aria-hidden="true">*</span></label>
           <input
             id="name"
             v-model="form.name"
@@ -60,13 +60,13 @@ async function onSubmit() {
         </div>
 
         <div class="field">
-          <label for="phone">Телефон <span aria-hidden="true">*</span></label>
+          <label for="phone">{{ t('contact.phoneLabel') }} <span aria-hidden="true">*</span></label>
           <input
             id="phone"
             v-model="form.phone"
             type="tel"
             autocomplete="tel"
-            placeholder="+7 (___) ___-__-__"
+            :placeholder="t('contact.phonePlaceholder')"
             :aria-invalid="!!errors.phone"
             :aria-describedby="errors.phone ? 'phone-error' : undefined"
           />
@@ -74,7 +74,7 @@ async function onSubmit() {
         </div>
 
         <div class="field">
-          <label for="email">E-mail <span aria-hidden="true">*</span></label>
+          <label for="email">{{ t('contact.emailLabel') }} <span aria-hidden="true">*</span></label>
           <input
             id="email"
             v-model="form.email"
@@ -87,7 +87,7 @@ async function onSubmit() {
         </div>
 
         <button class="btn btn-primary contact__submit" type="submit" :disabled="status === 'submitting'">
-          {{ status === 'submitting' ? 'Отправка…' : 'Отправить' }}
+          {{ status === 'submitting' ? t('contact.submitting') : t('contact.submit') }}
         </button>
 
         <p

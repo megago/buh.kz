@@ -1,15 +1,19 @@
 <script setup>
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { WHATSAPP_URL, TELEGRAM_URL, INSTAGRAM_URL, INSTAGRAM_HANDLE } from '../constants/contacts'
+
+const { t } = useI18n()
 
 defineProps({
   size: { type: Number, default: 20 }
 })
 
-const links = [
-  { id: 'whatsapp', label: 'Написать в WhatsApp', url: WHATSAPP_URL, colorVar: '--wa-green' },
-  { id: 'telegram', label: 'Написать в Telegram', url: TELEGRAM_URL, colorVar: '--tg-blue' },
-  { id: 'instagram', label: `Instagram @${INSTAGRAM_HANDLE}`, url: INSTAGRAM_URL, colorVar: '--ig-pink' }
-]
+const links = computed(() => [
+  { id: 'whatsapp', label: t('social.whatsapp'), url: WHATSAPP_URL, colorVar: '--wa-green' },
+  { id: 'telegram', label: t('social.telegram'), url: TELEGRAM_URL, colorVar: '--tg-blue' },
+  { id: 'instagram', label: t('social.instagram', { handle: INSTAGRAM_HANDLE }), url: INSTAGRAM_URL, colorVar: '--ig-pink' }
+])
 </script>
 
 <template>

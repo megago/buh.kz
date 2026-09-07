@@ -1,5 +1,8 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount, nextTick, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const props = defineProps({
   items: { type: Array, required: true }, // [{ full, thumb, alt }]
@@ -66,11 +69,11 @@ defineExpose({ open })
         ref="dialogRef"
         @click.self="close"
       >
-        <button class="lightbox__close" aria-label="Закрыть" @click="close">✕</button>
+        <button class="lightbox__close" :aria-label="t('a11y.close')" @click="close">✕</button>
         <button
           v-if="items.length > 1"
           class="lightbox__nav lightbox__nav--prev"
-          aria-label="Предыдущий сертификат"
+          :aria-label="t('a11y.prevCert')"
           @click="prev"
         >‹</button>
 
@@ -79,7 +82,7 @@ defineExpose({ open })
         <button
           v-if="items.length > 1"
           class="lightbox__nav lightbox__nav--next"
-          aria-label="Следующий сертификат"
+          :aria-label="t('a11y.nextCert')"
           @click="next"
         >›</button>
       </div>

@@ -1,4 +1,6 @@
 <script setup>
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import Lightbox from './Lightbox.vue'
 
 import accaThumb from '../assets/img/cert-acca-dipifr-thumb.jpg'
@@ -8,23 +10,29 @@ import rbFull from '../assets/img/cert-russell-bedford-full.jpg'
 import pnkThumb from '../assets/img/cert-pnk-udostoverenie-thumb.jpg'
 import pnkFull from '../assets/img/cert-pnk-udostoverenie-full.jpg'
 
-const certs = [
-  { thumb: accaThumb, full: accaFull, alt: 'Диплом ACCA DipIFR по международной финансовой отчётности' },
-  { thumb: rbThumb, full: rbFull, alt: 'Сертификат профессионального бухгалтера Russell Bedford' },
-  { thumb: pnkThumb, full: pnkFull, alt: 'Удостоверение члена Палаты налоговых консультантов РК' }
+const { t, tm } = useI18n()
+
+const images = [
+  { thumb: accaThumb, full: accaFull },
+  { thumb: rbThumb, full: rbFull },
+  { thumb: pnkThumb, full: pnkFull }
 ]
+
+const certs = computed(() =>
+  tm('certificates.items').map((alt, i) => ({ ...images[i], alt }))
+)
 </script>
 
 <template>
   <section id="certificates" class="section">
     <div class="container">
-      <h2 class="eyebrow-heading certificates__title" v-reveal>Наши сертификаты</h2>
+      <h2 class="eyebrow-heading certificates__title" v-reveal>{{ t('certificates.heading') }}</h2>
 
       <Lightbox :items="certs">
         <template #trigger="{ open }">
           <ul class="certificates__grid">
             <li v-for="(c, i) in certs" :key="c.alt" v-reveal="{ delay: i * 90 }">
-              <button class="cert-card" @click="open(i)" :aria-label="`Открыть: ${c.alt}`">
+              <button class="cert-card" @click="open(i)" :aria-label="t('a11y.openCert', { alt: c.alt })">
                 <img :src="c.thumb" :alt="c.alt" loading="lazy" />
                 <span class="cert-card__zoom" aria-hidden="true">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
