@@ -18,9 +18,11 @@ function detectInitialLocale() {
   } catch {
     // localStorage unavailable (private mode, etc.) — fall through
   }
-  const browserLang = (navigator.language || '').slice(0, 2)
-  if (SUPPORTED_LOCALES.some((l) => l.code === browserLang)) return browserLang
-  return 'ru' // default: Kazakhstani business, Russian-speaking owner
+  // Always default to Russian for first-time visitors, regardless of browser
+  // language — primary audience is a Kazakhstani business's Russian-speaking
+  // clients. Visitors can still switch via the header language selector,
+  // and that choice is what gets remembered above.
+  return 'ru'
 }
 
 export const i18n = createI18n({
