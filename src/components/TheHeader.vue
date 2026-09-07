@@ -30,7 +30,7 @@ const links = computed(() => [
         <a v-for="l in links" :key="l.href" :href="l.href" @click="close">{{ l.label }}</a>
         <a class="header__phone header__phone--mobile" :href="`tel:+${PHONE_E164}`">{{ PHONE_DISPLAY }}</a>
         <SocialLinks class="header__social--mobile" :size="18" />
-        <LanguageSwitcher class="header__lang--mobile" />
+        <LanguageSwitcher class="header__lang--mobile" align="start" />
       </nav>
 
       <div class="header__right">

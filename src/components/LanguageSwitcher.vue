@@ -5,6 +5,15 @@ import { SUPPORTED_LOCALES, setLocale } from '../i18n'
 
 const { locale, t } = useI18n()
 
+const props = defineProps({
+  // Which edge the dropdown hangs from. 'end' (default) anchors it to the
+  // trigger's right edge, growing leftward — right for a right-aligned
+  // trigger like the desktop header. 'start' anchors to the left edge and
+  // grows rightward — needed for the mobile menu, where the trigger sits
+  // near the left edge and 'end' would push the panel off-screen.
+  align: { type: String, default: 'end', validator: (v) => ['start', 'end'].includes(v) }
+})
+
 const isOpen = ref(false)
 const rootEl = ref(null)
 const activeIndex = ref(0)
@@ -74,7 +83,13 @@ onBeforeUnmount(() => document.removeEventListener('click', onClickOutside))
     </button>
 
     <Transition name="lang-switch-fade">
-      <ul v-if="isOpen" class="lang-switch__menu" role="listbox" :aria-label="t('lang.switchAria')">
+      <ul
+        v-if="isOpen"
+        class="lang-switch__menu"
+        :class="`lang-switch__menu--${align}`"
+        role="listbox"
+        :aria-label="t('lang.switchAria')"
+      >
         <li
           v-for="(l, i) in SUPPORTED_LOCALES"
           :key="l.code"
@@ -132,7 +147,6 @@ onBeforeUnmount(() => document.removeEventListener('click', onClickOutside))
 .lang-switch__menu {
   position: absolute;
   top: calc(100% + 0.5rem);
-  right: 0;
   z-index: 60;
   min-width: 7.5rem;
   margin: 0;
@@ -142,6 +156,14 @@ onBeforeUnmount(() => document.removeEventListener('click', onClickOutside))
   border: 1px solid var(--border);
   border-radius: 14px;
   box-shadow: var(--shadow-float);
+}
+
+.lang-switch__menu--end {
+  right: 0;
+}
+
+.lang-switch__menu--start {
+  left: 0;
 }
 
 .lang-switch__option {
