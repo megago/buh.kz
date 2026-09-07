@@ -1,0 +1,9 @@
+node_modules
+dist
+.DS_Store
+figma-export/file.json
+figma-export/imagefills.json
+figma-export/svg.json
+figma-export/img.json
+figma-export/img2.json
+figma-export/meta.json

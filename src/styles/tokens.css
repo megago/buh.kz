@@ -1,0 +1,35 @@
+:root {
+  /* colors — from Figma */
+  --blue: #0140eb;
+  --blue-dark: #012fb0;
+  --blue-light: #8aaaff;
+  --line: #6386e9;
+  --ink: #051923;
+  --white: #ffffff;
+  --tint: rgba(5, 25, 35, 0.03);
+  --border: rgba(99, 134, 233, 0.16);
+
+  --wa-green: #25d366;
+  --tg-blue: #26a5e4;
+  --ig-pink: #e1306c;
+
+  /* type */
+  --font: 'Inter Variable', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* fluid type scale, anchored to the Figma desktop sizes */
+  --fs-hero: clamp(2.5rem, 3.2rem + 3vw, 8.5rem);
+  --fs-h1: clamp(1.75rem, 1.4rem + 1.6vw, 3.25rem);
+  --fs-h2: clamp(1.4rem, 1.2rem + 0.9vw, 2.25rem);
+  --fs-lead: clamp(1.05rem, 1rem + 0.4vw, 1.375rem);
+  --fs-body: clamp(0.95rem, 0.9rem + 0.2vw, 1.125rem);
+  --fs-small: 0.9375rem;
+
+  /* layout */
+  --container: 1200px;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --gap: clamp(1rem, 0.8rem + 1vw, 2rem);
+
+  --shadow-card: 0 2px 24px rgba(5, 25, 35, 0.06);
+  --shadow-float: 0 8px 28px rgba(5, 25, 35, 0.18);
+}
