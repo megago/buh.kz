@@ -2,8 +2,10 @@
 import { useI18n } from 'vue-i18n'
 import { PHONE_DISPLAY, PHONE_E164, EMAIL, ADDRESS } from '../constants/contacts'
 import SocialLinks from './SocialLinks.vue'
+import { usePrivacyModal } from '../composables/usePrivacyModal'
 
 const { t } = useI18n()
+const { open: openPrivacyModal } = usePrivacyModal()
 const year = new Date().getFullYear()
 </script>
 
@@ -13,7 +15,7 @@ const year = new Date().getFullYear()
       <div class="footer__brand">
         <span class="footer__logo">LEADER<span>ABH</span></span>
         <p class="footer__legal">© {{ year }} {{ t('footer.rights') }}</p>
-        <a href="/privacy.html" class="footer__link">{{ t('footer.privacy') }}</a>
+        <button type="button" class="footer__link" @click="openPrivacyModal">{{ t('footer.privacy') }}</button>
       </div>
 
       <address class="footer__contacts">
@@ -57,8 +59,22 @@ const year = new Date().getFullYear()
 .footer__link {
   display: inline-block;
   margin-top: 0.5rem;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
   font-size: 0.85rem;
   color: var(--blue);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: transparent;
+  transition: text-decoration-color 0.15s ease;
+}
+
+.footer__link:hover,
+.footer__link:focus-visible {
+  text-decoration-color: currentColor;
 }
 
 .footer__contacts {

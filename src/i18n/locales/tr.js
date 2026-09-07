@@ -112,6 +112,36 @@ export default {
       email: 'E-posta'
     }
   },
+  privacy: {
+    title: 'Gizlilik Politikası',
+    draftNote: 'Taslak — yayınlanmadan önce nihai hukuki metinle değiştirilecektir.',
+    sections: [
+      {
+        heading: '1. Genel hükümler',
+        body: 'Bu politika, geri bildirim formu aracılığıyla iletişim bilgilerini bırakan LeaderABH web sitesi ("Site") ziyaretçilerinin kişisel verilerinin nasıl işlendiğini belirler.'
+      },
+      {
+        heading: '2. Hangi verileri topluyoruz',
+        body: 'Talep formunda belirtilen ad soyad, telefon numarası ve e-posta adresi.'
+      },
+      {
+        heading: '3. Verilerin işlenme amacı',
+        body: 'Veriler yalnızca muhasebe ve vergi desteği konusunda ziyaretçiyle iletişime geçmek için kullanılır ve üçüncü taraflarla paylaşılmaz.'
+      },
+      {
+        heading: '4. Talebin iletilme şekli',
+        body: 'Site formu üzerinden gönderilen talep, "İletişim" bölümünde belirtilen numaraya bağlı WhatsApp üzerinden iletilir.'
+      },
+      {
+        heading: '5. Verilerin saklanması ve korunması',
+        body: 'Sağlanan verileri yetkisiz erişime karşı korumak için makul önlemler alıyoruz.'
+      },
+      {
+        heading: '6. İletişim',
+        body: 'Kişisel verilerin işlenmesiyle ilgili sorularınız için {email} adresinden bize ulaşabilirsiniz.'
+      }
+    ]
+  },
   footer: {
     privacy: 'Gizlilik Politikası',
     rights: 'Tüm hakları saklıdır.',

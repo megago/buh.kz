@@ -112,6 +112,36 @@ export default {
       email: 'E-mail'
     }
   },
+  privacy: {
+    title: 'Privacy Policy',
+    draftNote: 'Draft — to be replaced with the final legal text before publication.',
+    sections: [
+      {
+        heading: '1. General provisions',
+        body: 'This policy sets out how personal data is processed for visitors of the LeaderABH website (the "Site") who leave their contact details via the feedback form.'
+      },
+      {
+        heading: '2. What data we collect',
+        body: 'Name, phone number, and email address provided in the request form.'
+      },
+      {
+        heading: '3. Purpose of processing',
+        body: 'The data is used solely to contact the visitor regarding accounting and tax support, and is not shared with third parties.'
+      },
+      {
+        heading: '4. How the request is submitted',
+        body: 'Requests submitted through the Site\'s form are sent via the WhatsApp number listed in the "Contact" section.'
+      },
+      {
+        heading: '5. Data storage and protection',
+        body: 'We take reasonable measures to protect the data provided from unauthorized access.'
+      },
+      {
+        heading: '6. Contact',
+        body: 'For questions about personal data processing, contact us at {email}.'
+      }
+    ]
+  },
   footer: {
     privacy: 'Privacy Policy',
     rights: 'All rights reserved.',

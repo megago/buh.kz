@@ -10,6 +10,7 @@ import ContractSection from './components/ContractSection.vue'
 import ContactFormSection from './components/ContactFormSection.vue'
 import TheFooter from './components/TheFooter.vue'
 import FloatingSocial from './components/FloatingSocial.vue'
+import PrivacyModal from './components/PrivacyModal.vue'
 
 const { t } = useI18n()
 </script>
@@ -28,4 +29,5 @@ const { t } = useI18n()
   </main>
   <TheFooter />
   <FloatingSocial />
+  <PrivacyModal />
 </template>
