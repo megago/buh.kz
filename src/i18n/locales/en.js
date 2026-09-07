@@ -1,6 +1,6 @@
 export default {
   meta: {
-    title: 'LeaderABH — Accounting Support for Business in Almaty',
+    title: 'LeaderABH - Accounting Support for Business in Almaty',
     description:
       'Full-cycle accounting for your business: taxes, reporting, HR records. 20+ years of experience, liability secured by contract. Free diagnostic.'
   },
@@ -18,7 +18,7 @@ export default {
   hero: {
     titleLine1: 'Run your business,',
     titleLine2: 'we’ll take care of accounting and taxes',
-    lead: 'We provide full-cycle accounting for your business, freeing you from routine work and protecting you from fines — liability is secured by contract.',
+    lead: 'We provide full-cycle accounting for your business, freeing you from routine work and protecting you from fines - liability is secured by contract.',
     ctaPrimary: 'Free diagnostic',
     ctaSecondary: 'Call us',
     stats: [
@@ -29,7 +29,7 @@ export default {
   },
   services: {
     heading: 'Turnkey comprehensive support',
-    note: 'We guarantee quality, timely work — not just in words, but backed by a signed contract.',
+    note: 'We guarantee quality, timely work - not just in words, but backed by a signed contract.',
     cta: 'Get an accounting diagnostic',
     checklist: [
       'Analysis and development of a tax and accounting strategy tailored to your business',
@@ -42,9 +42,9 @@ export default {
       'HR records management'
     ],
     cards: [
-      { title: 'One-off consultations', text: 'Targeted help with a specific question — no long-term commitment.' },
+      { title: 'One-off consultations', text: 'Targeted help with a specific question - no long-term commitment.' },
       { title: 'Opening and liquidation', text: 'We support your business from registering a sole proprietorship/LLP to closing it, with no loose ends or fines.' },
-      { title: 'HR administration', text: 'Orders, employment contracts, personnel records — compliant with Kazakhstan’s labour law.' }
+      { title: 'HR administration', text: 'Orders, employment contracts, personnel records - compliant with Kazakhstan’s labour law.' }
     ]
   },
   benefits: {
@@ -56,11 +56,11 @@ export default {
       },
       {
         title: 'Save on salary',
-        text: 'Working with us saves you the cost of an in-house accountant’s salary and social contributions — we simply sign a contract and are not your staff.'
+        text: 'Working with us saves you the cost of an in-house accountant’s salary and social contributions - we simply sign a contract and are not your staff.'
       },
       {
         title: 'Collective experience',
-        text: 'Our team brings together specialists with different backgrounds and experience. In a difficult situation, we solve it together — something a single in-house accountant can’t do.'
+        text: 'Our team brings together specialists with different backgrounds and experience. In a difficult situation, we solve it together - something a single in-house accountant can’t do.'
       }
     ]
   },
@@ -89,7 +89,7 @@ export default {
   },
   contact: {
     heading: 'Free diagnostic of your accounting',
-    lead: 'Leave your contact details — we’ll get in touch and schedule a meeting to discuss your accounting.',
+    lead: 'Leave your contact details - we’ll get in touch and schedule a meeting to discuss your accounting.',
     nameLabel: 'Name',
     phoneLabel: 'Phone',
     emailLabel: 'E-mail',
@@ -101,7 +101,7 @@ export default {
       phone: 'Please enter a valid phone number',
       email: 'Please enter a valid e-mail address'
     },
-    successMessage: 'Thank you! We’ll open WhatsApp — send the message and we’ll get back to you.',
+    successMessage: 'Thank you! We’ll open WhatsApp - send the message and we’ll get back to you.',
     genericError: 'Something went wrong.',
     proxyDownError: 'Submissions are temporarily unavailable. Please call us directly.',
     sendError: 'Couldn’t send your request. Please try again or call us.',
@@ -126,7 +126,7 @@ export default {
   },
   a11y: {
     skipLink: 'Skip to content',
-    homeAria: 'LeaderABH — go to homepage',
+    homeAria: 'LeaderABH - go to homepage',
     openMenu: 'Open menu',
     mainNav: 'Main navigation',
     contactUs: 'Contact us',
