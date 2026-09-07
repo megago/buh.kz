@@ -1,10 +1,11 @@
-// v-reveal: fades + slides an element in the first time it enters the
-// viewport while scrolling. Mirrors the scroll-reveal pattern used on
-// driverspa.kz (IntersectionObserver toggling a "is-visible" class).
+// v-reveal: fades + slides an element in whenever it scrolls into the
+// viewport, and resets it when it scrolls back out — so the animation
+// replays every time (scroll down, back up, down again all re-trigger it),
+// matching the scroll-reveal pattern used on driverspa.kz.
 //
 // Usage:
 //   <div v-reveal>...</div>
-//   <div v-reveal="{ delay: 120 }">...</div>          stagger by hand
+//   <div v-reveal="{ delay: 120 }">...</div          stagger by hand
 //   <div v-reveal="{ delay: i * 80 }" v-for="...">      stagger a list
 
 const reduceMotion =
@@ -16,10 +17,7 @@ const observer =
     ? new IntersectionObserver(
         (entries) => {
           for (const entry of entries) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('is-visible')
-              observer.unobserve(entry.target)
-            }
+            entry.target.classList.toggle('is-visible', entry.isIntersecting)
           }
         },
         { threshold: 0.15, rootMargin: '0px 0px -8% 0px' }
