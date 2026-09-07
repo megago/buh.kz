@@ -18,9 +18,9 @@ const benefits = [
 <template>
   <section id="guarantees" class="section">
     <div class="container benefits">
-      <h2 class="benefits__title">С нами вы экономите время и нервы</h2>
+      <h2 class="benefits__title" v-reveal>С нами вы экономите время и нервы</h2>
       <div class="benefits__cards">
-        <article v-for="b in benefits" :key="b.title" class="benefit-card">
+        <article v-for="(b, i) in benefits" :key="b.title" class="benefit-card" v-reveal="{ delay: i * 90 }">
           <h3>{{ b.title }}</h3>
           <p>{{ b.text }}</p>
         </article>

@@ -20,7 +20,7 @@ const cards = [
 <template>
   <section id="services" class="section services">
     <div class="container services__grid">
-      <div class="services__intro">
+      <div class="services__intro" v-reveal>
         <h2 class="eyebrow-heading">Комплексное сопровождение «под ключ»</h2>
         <p class="services__note">
           Мы гарантируем качественную и своевременную работу — не на словах,
@@ -30,7 +30,7 @@ const cards = [
       </div>
 
       <ul class="services__list">
-        <li v-for="item in checklist" :key="item">
+        <li v-for="(item, i) in checklist" :key="item" v-reveal="{ delay: i * 60 }">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
             <circle cx="10" cy="10" r="10" fill="var(--blue)" opacity="0.12" />
             <path d="M6 10.5 8.5 13 14 7.5" stroke="var(--blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
@@ -41,7 +41,7 @@ const cards = [
     </div>
 
     <div class="container services__cards">
-      <article v-for="c in cards" :key="c.title" class="service-card">
+      <article v-for="(c, i) in cards" :key="c.title" class="service-card" v-reveal="{ delay: i * 90 }">
         <h3>{{ c.title }}</h3>
         <p>{{ c.text }}</p>
       </article>

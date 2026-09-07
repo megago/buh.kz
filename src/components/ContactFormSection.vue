@@ -37,7 +37,7 @@ async function onSubmit() {
 <template>
   <section id="contact" class="section">
     <div class="container contact">
-      <div class="contact__copy">
+      <div class="contact__copy" v-reveal>
         <h2 class="eyebrow-heading">Бесплатная диагностика вашей бухгалтерии</h2>
         <p>
           Оставьте свои контакты, мы с вами свяжемся и назначим встречу, чтобы
@@ -45,7 +45,7 @@ async function onSubmit() {
         </p>
       </div>
 
-      <form class="contact__form" novalidate @submit.prevent="onSubmit">
+      <form class="contact__form" novalidate @submit.prevent="onSubmit" v-reveal="{ delay: 120 }">
         <div class="field">
           <label for="name">Имя <span aria-hidden="true">*</span></label>
           <input

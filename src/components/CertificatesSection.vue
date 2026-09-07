@@ -18,12 +18,12 @@ const certs = [
 <template>
   <section id="certificates" class="section">
     <div class="container">
-      <h2 class="eyebrow-heading certificates__title">Наши сертификаты</h2>
+      <h2 class="eyebrow-heading certificates__title" v-reveal>Наши сертификаты</h2>
 
       <Lightbox :items="certs">
         <template #trigger="{ open }">
           <ul class="certificates__grid">
-            <li v-for="(c, i) in certs" :key="c.alt">
+            <li v-for="(c, i) in certs" :key="c.alt" v-reveal="{ delay: i * 90 }">
               <button class="cert-card" @click="open(i)" :aria-label="`Открыть: ${c.alt}`">
                 <img :src="c.thumb" :alt="c.alt" loading="lazy" />
                 <span class="cert-card__zoom" aria-hidden="true">

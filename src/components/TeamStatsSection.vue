@@ -12,22 +12,22 @@ const stats = [
 <template>
   <section id="team" class="section">
     <div class="container">
-      <h2 class="eyebrow-heading">Команда профессионалов к вашим услугам</h2>
-      <p class="team__lead">
+      <h2 class="eyebrow-heading" v-reveal>Команда профессионалов к вашим услугам</h2>
+      <p class="team__lead" v-reveal="{ delay: 80 }">
         Предоставляем высококачественный сервис в сфере бухгалтерии, налогового
         аудита и юридической поддержки. С нами вы будете уверены в точности и
         своевременности всех финансовых операций вашей компании.
       </p>
 
       <div class="team__cards">
-        <article v-for="s in stats" :key="s.text" class="team-card">
+        <article v-for="(s, i) in stats" :key="s.text" class="team-card" v-reveal="{ delay: i * 90 }">
           <p class="team-card__value">
             <StatCounter :target="s.target" :prefix="s.prefix" :suffix="s.suffix" /> {{ s.title }}
           </p>
           <p class="team-card__text">{{ s.text }}</p>
         </article>
 
-        <article class="team-card team-card--partner">
+        <article class="team-card team-card--partner" v-reveal="{ delay: stats.length * 90 }">
           <img :src="partnerLogo" alt="Партнёр сети «Учёт.Партнёры»" height="52" />
           <p class="team-card__text">Партнёр Сети «Учёт.Партнёры»</p>
         </article>

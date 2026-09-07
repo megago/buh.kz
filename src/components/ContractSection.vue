@@ -5,7 +5,7 @@ import illustration from '../assets/img/illustration-contract.svg'
 <template>
   <section class="section contract">
     <div class="container contract__grid">
-      <div class="contract__copy">
+      <div class="contract__copy" v-reveal>
         <h2 class="eyebrow-heading">Все условия сотрудничества пропишутся в договоре</h2>
         <p>
           Мы понимаем, что на словах можно говорить всё, что угодно, поэтому
@@ -13,7 +13,7 @@ import illustration from '../assets/img/illustration-contract.svg'
           ответственности.
         </p>
       </div>
-      <img class="contract__illustration" :src="illustration" alt="" role="presentation" width="546" height="364" loading="lazy" />
+      <img class="contract__illustration" :src="illustration" alt="" role="presentation" width="546" height="364" loading="lazy" v-reveal="{ delay: 120 }" />
     </div>
   </section>
 </template>
