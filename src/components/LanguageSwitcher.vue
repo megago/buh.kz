@@ -76,7 +76,7 @@ onBeforeUnmount(() => document.removeEventListener('click', onClickOutside))
       :aria-label="t('lang.switchAria')"
       @click="toggle"
     >
-      <span>{{ current.short }}</span>
+      <span>{{ current.label }}</span>
       <svg class="lang-switch__chevron" :class="{ 'is-open': isOpen }" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
         <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
       </svg>
@@ -101,7 +101,7 @@ onBeforeUnmount(() => document.removeEventListener('click', onClickOutside))
           :class="{ 'is-active': l.code === locale }"
           @click="select(l.code)"
         >
-          <span class="lang-switch__option-label">{{ l.short }}</span>
+          <span class="lang-switch__option-label">{{ l.label }}</span>
           <svg v-if="l.code === locale" class="lang-switch__check" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
@@ -148,7 +148,7 @@ onBeforeUnmount(() => document.removeEventListener('click', onClickOutside))
   position: absolute;
   top: calc(100% + 0.5rem);
   z-index: 60;
-  min-width: 7.5rem;
+  min-width: 11rem;
   margin: 0;
   padding: 0.35rem;
   list-style: none;
