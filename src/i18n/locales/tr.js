@@ -1,6 +1,11 @@
 export default {
+  brand: {
+    part1: 'Kazakistan',
+    part2: 'Muhasebesi',
+    full: 'Kazakistan Muhasebesi'
+  },
   meta: {
-    title: 'Бухгалтерия Казахстана — Almatı\'da İşletmeler için Muhasebe Desteği',
+    title: 'Kazakistan Muhasebesi — Almatı\'da İşletmeler için Muhasebe Desteği',
     description:
       'İşletmeniz için eksiksiz muhasebe hizmeti: vergiler, raporlama, personel kayıtları. 20+ yıllık deneyim, sorumluluk sözleşmeyle güvence altına alınır. Ücretsiz ön inceleme.'
   },
@@ -117,7 +122,7 @@ export default {
     sections: [
       {
         heading: '1. Genel hükümler',
-        body: 'Bu politika, geri bildirim formu aracılığıyla iletişim bilgilerini bırakan Бухгалтерия Казахстана web sitesi ("Site") ziyaretçilerinin kişisel verilerinin nasıl işlendiğini belirler.'
+        body: 'Bu politika, geri bildirim formu aracılığıyla iletişim bilgilerini bırakan Kazakistan Muhasebesi web sitesi ("Site") ziyaretçilerinin kişisel verilerinin nasıl işlendiğini belirler.'
       },
       {
         heading: '2. Hangi verileri topluyoruz',
@@ -155,7 +160,7 @@ export default {
   },
   a11y: {
     skipLink: 'İçeriğe geç',
-    homeAria: 'Бухгалтерия Казахстана — ana sayfaya git',
+    homeAria: 'Kazakistan Muhasebesi — ana sayfaya git',
     openMenu: 'Menüyü aç',
     mainNav: 'Ana menü',
     contactUs: 'Bizimle iletişime geçin',

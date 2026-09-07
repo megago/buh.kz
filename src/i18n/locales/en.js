@@ -1,6 +1,11 @@
 export default {
+  brand: {
+    part1: 'Kazakhstan',
+    part2: 'Accounting',
+    full: 'Kazakhstan Accounting'
+  },
   meta: {
-    title: 'Бухгалтерия Казахстана — Accounting Support for Business in Almaty',
+    title: 'Kazakhstan Accounting — Accounting Support for Business in Almaty',
     description:
       'Full-cycle accounting for your business: taxes, reporting, HR records. 20+ years of experience, liability secured by contract. Free diagnostic.'
   },
@@ -117,7 +122,7 @@ export default {
     sections: [
       {
         heading: '1. General provisions',
-        body: 'This policy sets out how personal data is processed for visitors of the Бухгалтерия Казахстана website (the "Site") who leave their contact details via the feedback form.'
+        body: 'This policy sets out how personal data is processed for visitors of the Kazakhstan Accounting website (the "Site") who leave their contact details via the feedback form.'
       },
       {
         heading: '2. What data we collect',
@@ -155,7 +160,7 @@ export default {
   },
   a11y: {
     skipLink: 'Skip to content',
-    homeAria: 'Бухгалтерия Казахстана — go to homepage',
+    homeAria: 'Kazakhstan Accounting — go to homepage',
     openMenu: 'Open menu',
     mainNav: 'Main navigation',
     contactUs: 'Contact us',
