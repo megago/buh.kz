@@ -1,6 +1,6 @@
 export default {
   meta: {
-    title: 'LeaderABH — Almatı\'da İşletmeler için Muhasebe Desteği',
+    title: 'Бухгалтерия Казахстана — Almatı\'da İşletmeler için Muhasebe Desteği',
     description:
       'İşletmeniz için eksiksiz muhasebe hizmeti: vergiler, raporlama, personel kayıtları. 20+ yıllık deneyim, sorumluluk sözleşmeyle güvence altına alınır. Ücretsiz ön inceleme.'
   },
@@ -117,7 +117,7 @@ export default {
     sections: [
       {
         heading: '1. Genel hükümler',
-        body: 'Bu politika, geri bildirim formu aracılığıyla iletişim bilgilerini bırakan LeaderABH web sitesi ("Site") ziyaretçilerinin kişisel verilerinin nasıl işlendiğini belirler.'
+        body: 'Bu politika, geri bildirim formu aracılığıyla iletişim bilgilerini bırakan Бухгалтерия Казахстана web sitesi ("Site") ziyaretçilerinin kişisel verilerinin nasıl işlendiğini belirler.'
       },
       {
         heading: '2. Hangi verileri topluyoruz',
@@ -155,7 +155,7 @@ export default {
   },
   a11y: {
     skipLink: 'İçeriğe geç',
-    homeAria: 'LeaderABH — ana sayfaya git',
+    homeAria: 'Бухгалтерия Казахстана — ana sayfaya git',
     openMenu: 'Menüyü aç',
     mainNav: 'Ana menü',
     contactUs: 'Bizimle iletişime geçin',

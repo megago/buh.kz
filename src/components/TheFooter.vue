@@ -13,7 +13,7 @@ const year = new Date().getFullYear()
   <footer class="footer">
     <div class="container footer__grid">
       <div class="footer__brand">
-        <span class="footer__logo">LEADER<span>ABH</span></span>
+        <span class="footer__logo">Бухгалтерия <span>Казахстана</span></span>
         <p class="footer__legal">© {{ year }} {{ t('footer.rights') }}</p>
         <button type="button" class="footer__link" @click="openPrivacyModal">{{ t('footer.privacy') }}</button>
       </div>

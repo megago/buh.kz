@@ -23,7 +23,7 @@ const links = computed(() => [
   <header class="header">
     <div class="container header__inner">
       <a href="#top" class="header__logo" :aria-label="t('a11y.homeAria')">
-        LEADER<span>ABH</span>
+        Бухгалтерия <span>Казахстана</span>
       </a>
 
       <nav class="header__nav" :class="{ 'is-open': isOpen }" :aria-label="t('a11y.mainNav')">
