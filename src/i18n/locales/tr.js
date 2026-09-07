@@ -114,7 +114,6 @@ export default {
   },
   privacy: {
     title: 'Gizlilik Politikası',
-    draftNote: 'Taslak — yayınlanmadan önce nihai hukuki metinle değiştirilecektir.',
     sections: [
       {
         heading: '1. Genel hükümler',

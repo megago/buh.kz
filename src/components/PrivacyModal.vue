@@ -60,7 +60,6 @@ onBeforeUnmount(() => {
 
         <div class="privacy-modal__scroll">
           <h2 id="privacy-modal-title" class="privacy-modal__title">{{ t('privacy.title') }}</h2>
-          <p class="privacy-modal__draft-note"><em>{{ t('privacy.draftNote') }}</em></p>
 
           <section v-for="(s, i) in sections" :key="i" class="privacy-modal__section">
             <h3>{{ s.heading }}</h3>
@@ -126,12 +125,6 @@ onBeforeUnmount(() => {
   font-weight: 500;
   color: var(--blue);
   padding-right: 2rem;
-}
-
-.privacy-modal__draft-note {
-  margin-top: 0.75rem;
-  font-size: 0.85rem;
-  opacity: 0.6;
 }
 
 .privacy-modal__section {

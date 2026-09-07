@@ -114,7 +114,6 @@ export default {
   },
   privacy: {
     title: 'Privacy Policy',
-    draftNote: 'Draft — to be replaced with the final legal text before publication.',
     sections: [
       {
         heading: '1. General provisions',
