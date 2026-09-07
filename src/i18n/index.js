@@ -2,11 +2,13 @@ import { createI18n } from 'vue-i18n'
 import ru from './locales/ru'
 import kk from './locales/kk'
 import en from './locales/en'
+import tr from './locales/tr'
 
 export const SUPPORTED_LOCALES = [
-  { code: 'ru', label: 'Русский', short: 'RU' },
-  { code: 'kk', label: 'Қазақша', short: 'ҚАЗ' },
-  { code: 'en', label: 'English', short: 'EN' }
+  { code: 'ru', label: 'Русский', short: 'Рус' },
+  { code: 'kk', label: 'Қазақша', short: 'Қаз' },
+  { code: 'en', label: 'English', short: 'Eng' },
+  { code: 'tr', label: 'Türkçe', short: 'Tür' }
 ]
 
 const STORAGE_KEY = 'leaderabh:locale'
@@ -30,7 +32,7 @@ export const i18n = createI18n({
   globalInjection: true,
   locale: detectInitialLocale(),
   fallbackLocale: 'ru',
-  messages: { ru, kk, en }
+  messages: { ru, kk, en, tr }
 })
 
 export function setLocale(code) {

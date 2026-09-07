@@ -36,7 +36,7 @@ const links = computed(() => [
       <div class="header__right">
         <a class="header__phone" :href="`tel:+${PHONE_E164}`">{{ PHONE_DISPLAY }}</a>
         <SocialLinks class="header__social" :size="18" />
-        <LanguageSwitcher class="header__lang" compact />
+        <LanguageSwitcher class="header__lang" />
         <button
           class="header__burger"
           :class="{ 'is-open': isOpen }"
