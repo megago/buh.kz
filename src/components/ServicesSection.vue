@@ -5,7 +5,7 @@ const { t, tm } = useI18n()
 </script>
 
 <template>
-  <section id="services" class="section services">
+  <section id="services" class="section section--white services">
     <div class="container services__grid">
       <div class="services__intro" v-reveal>
         <h2 class="eyebrow-heading">{{ t('services.heading') }}</h2>
@@ -81,7 +81,9 @@ const { t, tm } = useI18n()
 
 .service-card {
   padding: 1.75rem;
+  background: var(--bg);
   border: 1px solid var(--border);
+  border-top: 3px solid var(--blue);
   border-radius: var(--radius);
   transition: box-shadow 0.2s ease, transform 0.2s ease;
 }

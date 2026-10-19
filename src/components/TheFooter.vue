@@ -2,6 +2,7 @@
 import { useI18n } from 'vue-i18n'
 import { PHONE_DISPLAY, PHONE_E164, EMAIL, ADDRESS } from '../constants/contacts'
 import SocialLinks from './SocialLinks.vue'
+import BrandLogo from './BrandLogo.vue'
 import { usePrivacyModal } from '../composables/usePrivacyModal'
 
 const { t } = useI18n()
@@ -13,8 +14,8 @@ const year = new Date().getFullYear()
   <footer class="footer">
     <div class="container footer__grid">
       <div class="footer__brand">
-        <span class="footer__logo">{{ t('brand.part1') }} <span>{{ t('brand.part2') }}</span></span>
-        <p class="footer__legal">© {{ year }} {{ t('footer.rights') }}</p>
+        <BrandLogo light class="footer__logo" />
+        <p class="footer__legal">© {{ year }} {{ t('brand.legal') }}. {{ t('footer.rights') }}</p>
         <button type="button" class="footer__link" @click="openPrivacyModal">{{ t('footer.privacy') }}</button>
       </div>
 
@@ -30,7 +31,8 @@ const year = new Date().getFullYear()
 
 <style scoped>
 .footer {
-  border-top: 1px solid var(--border);
+  background: var(--navy-deep);
+  color: var(--on-dark-muted);
   padding-block: clamp(2rem, 3vw, 3rem);
 }
 
@@ -42,12 +44,7 @@ const year = new Date().getFullYear()
 }
 
 .footer__logo {
-  font-weight: 800;
   font-size: 1.1rem;
-}
-
-.footer__logo span {
-  color: var(--blue);
 }
 
 .footer__legal {
@@ -64,7 +61,7 @@ const year = new Date().getFullYear()
   background: none;
   font: inherit;
   font-size: 0.85rem;
-  color: var(--blue);
+  color: var(--blue-light);
   cursor: pointer;
   text-decoration: underline;
   text-underline-offset: 2px;
@@ -88,7 +85,12 @@ const year = new Date().getFullYear()
 }
 
 .footer__contacts a {
-  color: var(--blue);
+  color: var(--blue-light);
+}
+
+.footer__contacts strong {
+  color: var(--white);
+  font-weight: 500;
 }
 
 .footer__contacts :deep(.social-links) {

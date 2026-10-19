@@ -18,12 +18,11 @@ const { t } = useI18n()
 </template>
 
 <style scoped>
-.contract {
-  background: var(--tint);
-  border-radius: var(--radius);
-}
-
 .contract__grid {
+  padding: clamp(2rem, 4vw, 3.5rem);
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
@@ -48,6 +47,10 @@ const { t } = useI18n()
     text-align: center;
   }
   .contract__copy p {
+    margin-inline: auto;
+  }
+  .contract__copy :deep(.eyebrow-heading)::before,
+  .contract__copy .eyebrow-heading::before {
     margin-inline: auto;
   }
 }

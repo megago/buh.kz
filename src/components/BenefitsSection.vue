@@ -20,10 +20,23 @@ const { t, tm } = useI18n()
 
 <style scoped>
 .benefits {
-  background: var(--blue);
+  background:
+    radial-gradient(50% 70% at 100% 0%, rgba(200, 165, 100, 0.14), transparent 70%),
+    linear-gradient(135deg, var(--blue) 0%, var(--navy-deep) 100%);
   border-radius: var(--radius);
   padding: clamp(2rem, 4vw, 3.5rem);
   color: var(--white);
+  box-shadow: 0 20px 50px rgba(7, 29, 63, 0.18);
+}
+
+.benefits__title::before {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 3px;
+  margin-bottom: 1rem;
+  border-radius: 2px;
+  background: var(--gold);
 }
 
 .benefits__title {
@@ -40,14 +53,16 @@ const { t, tm } = useI18n()
 }
 
 .benefit-card {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-sm);
   padding: 1.75rem;
 }
 
 .benefit-card h3 {
   font-size: var(--fs-body);
-  font-weight: 400;
+  font-weight: 500;
+  color: var(--gold);
 }
 
 .benefit-card p {

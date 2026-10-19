@@ -18,8 +18,8 @@ export async function submitLead({ name, phone, email }, t) {
   const message =
     `Заявка на диагностику бухгалтерии\n` +
     `Имя: ${name}\n` +
-    `Телефон: ${phone}\n` +
-    `E-mail: ${email}`
+    `Телефон: ${phone}` +
+    (email ? `\nE-mail: ${email}` : '')
 
   if (LEAD_CONFIG.mode === 'whatsapp') {
     const url = `https://wa.me/${PHONE_E164}?text=${encodeURIComponent(message)}`

@@ -4,7 +4,7 @@
 export const PHONE_DISPLAY = '+7 707 902 02 43'
 export const PHONE_E164 = '77079020243' // digits only, no leading +
 export const EMAIL = 'Kamshat_auditor@mail.ru'
-export const ADDRESS = 'г. Алматы, ул. Шарипова 100'
+export const ADDRESS = 'г. Алматы, ул. Навои 30/1'
 
 export const WHATSAPP_URL = `https://wa.me/${PHONE_E164}`
 

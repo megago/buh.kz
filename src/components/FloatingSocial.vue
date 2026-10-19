@@ -17,7 +17,7 @@ const { t } = useI18n()
   right: clamp(1rem, 3vw, 2rem);
   bottom: clamp(1rem, 3vw, 2rem);
   z-index: 40;
-  background: var(--white);
+  background: var(--surface);
   padding: 0.5rem;
   border-radius: 999px;
   box-shadow: var(--shadow-float);

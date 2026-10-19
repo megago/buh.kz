@@ -1,19 +1,27 @@
 :root {
   /* colors — from Figma */
-  --blue: #0140eb;
-  --blue-dark: #012fb0;
-  --blue-light: #8aaaff;
-  --line: #6386e9;
+  --blue: #0d3b82;
+  --blue-dark: #082a5e;
+  --blue-light: #9db6e0;
+  --line: #5a7fbf;
   --ink: #051923;
   --white: #ffffff;
   --tint: rgba(5, 25, 35, 0.03);
-  --border: rgba(99, 134, 233, 0.16);
+  --bg: #e9e0d0;
+  --surface: #f4ede1;
+  --navy-deep: #071d3f;
+  --gold: #c8a564;
+  --gold-dark: #b08d4c;
+  --on-dark-muted: rgba(255, 255, 255, 0.78);
+  --border: rgba(120, 95, 60, 0.16);
 
   --wa-green: #25d366;
   --tg-blue: #26a5e4;
   --ig-pink: #e1306c;
 
   /* type */
+  /* headings use the same sans font as body text (as in version 1) */
+  --font-serif: var(--font);
   --font: 'Inter Variable', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
   /* fluid type scale, anchored to the Figma desktop sizes */

@@ -4,6 +4,7 @@ import { useI18n } from 'vue-i18n'
 import { PHONE_DISPLAY, PHONE_E164 } from '../constants/contacts'
 import SocialLinks from './SocialLinks.vue'
 import LanguageSwitcher from './LanguageSwitcher.vue'
+import BrandLogo from './BrandLogo.vue'
 
 const { t } = useI18n()
 
@@ -13,7 +14,7 @@ const close = () => { isOpen.value = false }
 const links = computed(() => [
   { href: '#services', label: t('nav.services') },
   { href: '#guarantees', label: t('nav.guarantees') },
-  { href: '#team', label: t('nav.team') },
+  { href: '#about', label: t('nav.about') },
   { href: '#certificates', label: t('nav.certificates') },
   { href: '#contact', label: t('nav.contact') }
 ])
@@ -23,7 +24,7 @@ const links = computed(() => [
   <header class="header">
     <div class="container header__inner">
       <a href="#top" class="header__logo" :aria-label="t('a11y.homeAria')">
-        {{ t('brand.part1') }} <span>{{ t('brand.part2') }}</span>
+        <BrandLogo />
       </a>
 
       <nav class="header__nav" :class="{ 'is-open': isOpen }" :aria-label="t('a11y.mainNav')">
@@ -36,6 +37,7 @@ const links = computed(() => [
       <div class="header__right">
         <a class="header__phone" :href="`tel:+${PHONE_E164}`">{{ PHONE_DISPLAY }}</a>
         <SocialLinks class="header__social" :size="18" />
+        <a href="#contact" class="btn btn-gold header__cta">{{ t('nav.callback') }}</a>
         <LanguageSwitcher class="header__lang" />
         <button
           class="header__burger"
@@ -57,7 +59,7 @@ const links = computed(() => [
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(244, 237, 225, 0.94);
   backdrop-filter: saturate(180%) blur(10px);
   border-bottom: 1px solid var(--border);
 }
@@ -78,9 +80,6 @@ const links = computed(() => [
   flex-shrink: 0;
 }
 
-.header__logo span {
-  color: var(--blue);
-}
 
 .header__nav {
   display: flex;
@@ -90,6 +89,7 @@ const links = computed(() => [
 }
 
 .header__nav a {
+  white-space: nowrap;
   color: var(--ink);
   opacity: 0.8;
   transition: opacity 0.15s ease, color 0.15s ease;
@@ -110,6 +110,23 @@ const links = computed(() => [
   color: var(--blue);
   font-weight: 500;
   white-space: nowrap;
+}
+
+.header__cta {
+  padding: 0.65rem 1.2rem;
+  box-shadow: none;
+}
+
+@media (max-width: 1440px) {
+  .header__right .header__social {
+    display: none;
+  }
+}
+
+@media (max-width: 1060px) {
+  .header__cta {
+    display: none;
+  }
 }
 
 .header__phone--mobile,
@@ -143,7 +160,7 @@ const links = computed(() => [
     position: fixed;
     inset: 76px 0 0 0;
     height: calc(100vh - 76px);
-    background: var(--white);
+    background: var(--surface);
     flex-direction: column;
     align-items: flex-start;
     padding: 2rem clamp(1.5rem, 5vw, 3rem);

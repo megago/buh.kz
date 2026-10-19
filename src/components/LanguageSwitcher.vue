@@ -123,7 +123,7 @@ onBeforeUnmount(() => document.removeEventListener('click', onClickOutside))
   padding: 0.45rem 0.7rem;
   border: 1px solid var(--border);
   border-radius: 999px;
-  background: var(--white);
+  background: var(--surface);
   color: var(--ink);
   font-size: 0.85rem;
   font-weight: 500;
@@ -152,7 +152,7 @@ onBeforeUnmount(() => document.removeEventListener('click', onClickOutside))
   margin: 0;
   padding: 0.35rem;
   list-style: none;
-  background: var(--white);
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 14px;
   box-shadow: var(--shadow-float);

@@ -8,7 +8,8 @@ html {
 }
 
 html, body {
-  overflow-x: hidden;
+  /* clip (not hidden): hidden turns body into a scroll container and breaks the sticky header */
+  overflow-x: clip;
   max-width: 100%;
 }
 
@@ -27,7 +28,7 @@ body {
   margin: 0;
   font-family: var(--font);
   color: var(--ink);
-  background: var(--white);
+  background: var(--bg);
   font-weight: 300;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -61,11 +62,65 @@ button {
   padding-block: clamp(3rem, 2rem + 4vw, 6.5rem);
 }
 
+.section--white {
+  background: var(--surface);
+}
+
+/* Diagonal section edges. The cut-off corner lets the neighbouring section's colour show through. */
+.hero {
+  margin-bottom: -5vw;
+}
+
+.hero + .section {
+  padding-top: calc(clamp(3rem, 2rem + 4vw, 6.5rem) + 5vw);
+}
+
+.section--slant-top {
+  clip-path: polygon(0 4vw, 100% 0, 100% 100%, 0 100%);
+  padding-top: calc(clamp(3rem, 2rem + 4vw, 6.5rem) + 4vw);
+}
+
+.eyebrow-heading,
+.hero__title,
+.benefits__title {
+  font-family: var(--font-serif);
+}
+
 .eyebrow-heading {
   color: var(--blue);
   font-weight: 400;
   font-size: var(--fs-h2);
   line-height: 1.2;
+}
+
+.eyebrow-heading::before {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 3px;
+  margin-bottom: 1rem;
+  border-radius: 2px;
+  background: var(--gold);
+}
+
+.btn-gold {
+  background: var(--gold);
+  color: var(--navy-deep);
+  box-shadow: 0 6px 20px rgba(200, 165, 100, 0.28);
+}
+
+.btn-gold:hover {
+  background: #d4b478;
+}
+
+.btn-ghost-light {
+  background: transparent;
+  color: var(--white);
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+}
+
+.btn-ghost-light:hover {
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .btn {

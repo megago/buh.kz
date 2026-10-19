@@ -16,7 +16,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 function validate() {
   errors.name = form.name.trim().length >= 2 ? '' : t('contact.errors.name')
   errors.phone = PHONE_RE.test(form.phone.trim()) ? '' : t('contact.errors.phone')
-  errors.email = EMAIL_RE.test(form.email.trim()) ? '' : t('contact.errors.email')
+  errors.email = !form.email.trim() || EMAIL_RE.test(form.email.trim()) ? '' : t('contact.errors.email')
   return !errors.name && !errors.phone && !errors.email
 }
 
@@ -38,7 +38,7 @@ async function onSubmit() {
 </script>
 
 <template>
-  <section id="contact" class="section">
+  <section id="contact" class="section section--slant-top contact-section">
     <div class="container contact">
       <div class="contact__copy" v-reveal>
         <h2 class="eyebrow-heading">{{ t('contact.heading') }}</h2>
@@ -74,7 +74,7 @@ async function onSubmit() {
         </div>
 
         <div class="field">
-          <label for="email">{{ t('contact.emailLabel') }} <span aria-hidden="true">*</span></label>
+          <label for="email">{{ t('contact.emailLabel') }} <em class="field__optional">({{ t('contact.optional') }})</em></label>
           <input
             id="email"
             v-model="form.email"
@@ -104,9 +104,16 @@ async function onSubmit() {
 </template>
 
 <style scoped>
+.contact-section {
+  background:
+    radial-gradient(50% 70% at 0% 0%, rgba(200, 165, 100, 0.12), transparent 70%),
+    linear-gradient(135deg, var(--blue) 0%, var(--navy-deep) 100%);
+}
+
 .contact {
-  border: 1px solid var(--border);
+  background: var(--surface);
   border-radius: var(--radius);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
   padding: clamp(2rem, 4vw, 3.5rem);
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -134,6 +141,12 @@ async function onSubmit() {
   margin-bottom: 0.4rem;
 }
 
+.field__optional {
+  font-style: normal;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
 .field label span {
   color: #d0273c;
 }
@@ -145,7 +158,7 @@ async function onSubmit() {
   border-radius: 10px;
   font: inherit;
   color: var(--ink);
-  background: var(--white);
+  background: var(--surface);
 }
 
 .field input[aria-invalid='true'] {

@@ -54,6 +54,10 @@ const certs = computed(() =>
   text-align: center;
 }
 
+.certificates__title::before {
+  margin-inline: auto;
+}
+
 .certificates__grid {
   list-style: none;
   margin: clamp(2rem, 3vw, 3rem) 0 0;
@@ -71,7 +75,8 @@ const certs = computed(() =>
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   overflow: hidden;
-  background: none;
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
   transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
@@ -93,7 +98,7 @@ const certs = computed(() =>
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: var(--white);
+  background: var(--surface);
   color: var(--blue);
   display: flex;
   align-items: center;
