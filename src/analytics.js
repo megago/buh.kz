@@ -4,14 +4,14 @@
 export const GOOGLE_ADS_ID = 'AW-18528180138'
 
 // Conversion labels from Google Ads → Goals → Conversions → <action> →
-// "Use Google tag" (the part after the slash in send_to). While a label is
-// null the action is still sent as a plain event, just not counted as a
+// "See event snippet" (the part after the slash in send_to). While a label
+// is null the action is still sent as a plain event, just not counted as a
 // conversion in Google Ads.
 const CONVERSION_LABELS = {
-  lead_form: null,
-  phone_click: null,
-  whatsapp_click: null,
-  telegram_click: null
+  lead_form: 'w8ljCNjssaQdEKqv9oJF',
+  phone_click: '7fXXCNvssaQdEKqv9oJF',
+  whatsapp_click: 'Jyv9CN7ssaQdEKqv9oJF',
+  telegram_click: 'VVrtCOHssaQdEKqv9oJF'
 }
 
 export function trackConversion(action) {
