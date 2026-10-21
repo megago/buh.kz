@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import { vReveal } from './directives/reveal'
 import { i18n, setLocale } from './i18n'
+import { trackContactClicks } from './analytics'
 import '@fontsource-variable/inter/wght.css'
 import './styles/tokens.css'
 import './styles/base.css'
@@ -11,3 +12,4 @@ import './styles/base.css'
 setLocale(i18n.global.locale.value)
 
 createApp(App).use(i18n).directive('reveal', vReveal).mount('#app')
+trackContactClicks()

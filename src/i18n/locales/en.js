@@ -178,7 +178,8 @@ export default {
       { heading: '3. Purpose of processing', body: 'The data is used solely to contact the visitor regarding accounting and tax support, and is not shared with third parties.' },
       { heading: '4. How the request is submitted', body: 'Requests submitted through the Site\'s form are sent via the WhatsApp number listed in the "Contact" section.' },
       { heading: '5. Data storage and protection', body: 'We take reasonable measures to protect the data provided from unauthorized access.' },
-      { heading: '6. Contact', body: 'For questions about personal data processing, contact us at {email}.' }
+      { heading: '6. Cookies and Google Ads', body: 'The Site uses the Google Ads tag (Google LLC), which uses cookies to anonymously measure ad clicks and enquiries (form requests, calls, messages) to evaluate advertising performance. You can disable cookies in your browser settings.' },
+      { heading: '7. Contact', body: 'For questions about personal data processing, contact us at {email}.' }
     ]
   },
   footer: {

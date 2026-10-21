@@ -178,7 +178,8 @@ export default {
       { heading: '3. Verilerin işlenme amacı', body: 'Veriler yalnızca muhasebe ve vergi desteği konusunda ziyaretçiyle iletişime geçmek için kullanılır ve üçüncü taraflarla paylaşılmaz.' },
       { heading: '4. Talebin iletilme şekli', body: 'Site formu üzerinden gönderilen talep, "İletişim" bölümünde belirtilen numaraya bağlı WhatsApp üzerinden iletilir.' },
       { heading: '5. Verilerin saklanması ve korunması', body: 'Sağlanan verileri yetkisiz erişime karşı korumak için makul önlemler alıyoruz.' },
-      { heading: '6. İletişim', body: 'Kişisel verilerin işlenmesiyle ilgili sorularınız için {email} adresinden bize ulaşabilirsiniz.' }
+      { heading: '6. Çerezler ve Google Ads', body: 'Site, reklam performansını değerlendirmek için reklam tıklamalarını ve başvuruları (form talepleri, aramalar, mesajlar) çerezler aracılığıyla anonim olarak ölçen Google Ads etiketini (Google LLC) kullanır. Çerezleri tarayıcı ayarlarınızdan devre dışı bırakabilirsiniz.' },
+      { heading: '7. İletişim', body: 'Kişisel verilerin işlenmesiyle ilgili sorularınız için {email} adresinden bize ulaşabilirsiniz.' }
     ]
   },
   footer: {

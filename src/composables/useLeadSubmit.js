@@ -1,4 +1,5 @@
 import { LEAD_CONFIG, PHONE_E164 } from '../constants/contacts'
+import { trackConversion } from '../analytics'
 
 /**
  * Submits a lead via the configured channel.
@@ -24,6 +25,7 @@ export async function submitLead({ name, phone, email }, t) {
   if (LEAD_CONFIG.mode === 'whatsapp') {
     const url = `https://wa.me/${PHONE_E164}?text=${encodeURIComponent(message)}`
     window.open(url, '_blank', 'noopener,noreferrer')
+    trackConversion('lead_form')
     return { ok: true }
   }
 
@@ -38,6 +40,7 @@ export async function submitLead({ name, phone, email }, t) {
         body: JSON.stringify({ name, phone, email })
       })
       if (!res.ok) throw new Error('bad response')
+      trackConversion('lead_form')
       return { ok: true }
     } catch {
       return { ok: false, error: t('contact.sendError') }
